@@ -1,4 +1,39 @@
 <template>
+<div>  <v-tabs dark grow>
+    <v-toolbar class="cyan" dark>
+      <v-toolbar-title>Curated Posts</v-toolbar-title>
+    </v-toolbar>
+    <v-tabs-bar slot="activators" class="cyan">
+      <v-tabs-slider class="yellow"></v-tabs-slider>
+      <v-tabs-item
+        v-for="(item, i) in items"
+        :key="i"
+        :href="'#tab-' + (i + 1)"
+      >
+        {{ item }}
+      </v-tabs-item>
+      <v-menu :nudge-width="100" left bottom>
+        <v-list class="grey lighten-3">
+          <v-list-tile
+            tag="a"
+            v-for="n in 4"
+            :key="n"
+          >
+            Item {{ n }}
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+    </v-tabs-bar>
+    <v-tabs-content
+      v-for="i in 5"
+      :key="i"
+      :id="'tab-' + i"
+    >
+      <v-card flat>
+        <v-card-text>{{ text }}</v-card-text>
+      </v-card>
+    </v-tabs-content>
+  </v-tabs>
       <v-layout row wrap justify-center> 
       <div v-for="post in posts">
       <v-card class="mx-5 my-3">
@@ -261,13 +296,19 @@
       </v-card> -->
       </div>
   </v-layout>
+  </div>
 </template>
 <script>
 export default{
 name:'dashboard',
  data () {
  	return{
- 		posts:[]
+ 		posts:[],
+     items: [
+          'web', 'shopping', 'videos', 'images', 'news'
+        ],
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      
  	}
  },
  mounted(){
@@ -278,9 +319,11 @@ name:'dashboard',
  		url:'https://vookmark.co'
  	}
  	this.posts.push(post);
- 	console.log(this.posts)
- 	console.log(post);
- }
+ this.posts.push(post);
+ this.posts.push(post);
+ this.posts.push(post);
+this.posts.push(post);
+  }
 }
 </script>
 <style>
