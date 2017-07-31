@@ -1,8 +1,8 @@
 import Firebase from 'firebase'
 
   // Initialize Firebase
-  const config = {
-   apiKey: "AIzaSyCu2o1CHFHtDCk8XD2FnSQIGUByXN7r1j0",
+   const config = {
+    apiKey: "AIzaSyCu2o1CHFHtDCk8XD2FnSQIGUByXN7r1j0",
     authDomain: "tech-blog-70fe9.firebaseapp.com",
     databaseURL: "https://tech-blog-70fe9.firebaseio.com",
     projectId: "tech-blog-70fe9",
@@ -12,13 +12,11 @@ import Firebase from 'firebase'
   
   const app = Firebase.initializeApp(config)
   const db = app.database()
-  const booksRef = db.ref('Posts')
+  const postsRef = db.ref('Posts')
 
 
 export {
   app,
   db,
-  booksRef
+  postsRef
 }
-
-  firebase.initializeApp(config);
