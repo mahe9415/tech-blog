@@ -5,7 +5,42 @@
       <v-icon>edit</v-icon>
     </v-btn>
   </div> -->
-
+ <v-dialog v-model="modal" width="100%">
+      <v-btn primary dark slot="activator">Open Dialog</v-btn>
+      <v-card>
+        <v-card-title>
+          <span class="headline">User Profile</span>
+        </v-card-title>
+        <v-card-text>
+          <v-text-field label="Email" required></v-text-field>
+          <v-text-field label="Password" type="password" required></v-text-field>
+          <v-text-field label="Legal first name" required></v-text-field>
+          <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
+          <v-text-field label="Legal last name" hint="example of persistent helper text"
+            persistent-hint
+            required
+          ></v-text-field>
+          <v-select
+            label="Age"
+            required
+            :items="['0-17', '18-29', '30-54', '54+']"
+          ></v-select>
+          <v-select
+            label="Interests"
+            multiple
+            autocomplete
+            chips
+            :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
+          <small>*indicates required field</small>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn class="blue--text darken-1" flat @click.native="dialog = false">Close</v-btn>
+          <v-btn class="blue--text darken-1" flat @click.native="dialog = false">Save</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-layout>
   <!-- <v-fab-transition> -->
       <v-btn
         class="orange"
@@ -15,16 +50,16 @@
         fixed
         bottom
         right
-        v-model="fab"
+        v-model="fab" v-if="modal" @click="openForm"
       >
         <v-icon>edit</v-icon>
         <!-- <v-icon>close</v-icon> -->
       </v-btn>
-    <!-- </v-fab-transition> -->
+    <form></form><!-- </v-fab-transition> -->
 
  <v-layout row wrap justify-center> 
       <div v-for="post in posts">
-      <v-card class="mx-5 my-3">
+      <v-card flat class="mx-5 my-3">
         <v-card-media
           class="white--text"
           height="200px"
@@ -289,18 +324,25 @@
 <script>
 import { db } from '../firebase.js'
   import { postsRef } from '../firebase.js'
+  import form from './form.vue'
 export default{
 name:'dashboard',
  data () {
- 	return{
+ 	return{        dialog: false
+,
       fab: false,
       hidden: false,
       tabs: 'two',
+      modal:true,
      items: [
           'web', 'shopping', 'videos', 'images', 'news'
         ],
  	}
- },firebase:{
+ },
+ components:{
+form
+ },
+ firebase:{
       posts:postsRef
     },
     //   computed:{
@@ -327,10 +369,16 @@ name:'dashboard',
  // this.posts.push(post);
  // this.posts.push(post);
 // this.posts.push(post);
+  },
+  methods:{
+    openForm(){
+
+    }
+
   }
 }
 </script>
-<style>
+<style scoped>
 	#example-1 {
     color: #fff;
     text-align: center;
