@@ -1,5 +1,5 @@
 <template>
-<div> 
+<v-app>
  <!-- <div class="text-xs-center">
     <v-btn outline large fab class="indigo--text">
       <v-icon>edit</v-icon>
@@ -56,9 +56,9 @@
           </v-btn></a>
         </v-card-actions>
       </v-card>
-      </div>
+     </div>
   </v-layout>
-  </div>
+</v-app>
 </template>
 <script>
 import { db } from '../firebase.js'
