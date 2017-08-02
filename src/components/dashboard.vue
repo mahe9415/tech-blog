@@ -5,42 +5,6 @@
       <v-icon>edit</v-icon>
     </v-btn>
   </div> -->
- <v-dialog v-model="modal" width="100%">
-      <v-btn primary dark slot="activator">Open Dialog</v-btn>
-      <v-card>
-        <v-card-title>
-          <span class="headline">User Profile</span>
-        </v-card-title>
-        <v-card-text>
-          <v-text-field label="Email" required></v-text-field>
-          <v-text-field label="Password" type="password" required></v-text-field>
-          <v-text-field label="Legal first name" required></v-text-field>
-          <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
-          <v-text-field label="Legal last name" hint="example of persistent helper text"
-            persistent-hint
-            required
-          ></v-text-field>
-          <v-select
-            label="Age"
-            required
-            :items="['0-17', '18-29', '30-54', '54+']"
-          ></v-select>
-          <v-select
-            label="Interests"
-            multiple
-            autocomplete
-            chips
-            :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-          <small>*indicates required field</small>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn class="blue--text darken-1" flat @click.native="dialog = false">Close</v-btn>
-          <v-btn class="blue--text darken-1" flat @click.native="dialog = false">Save</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-layout>
   <!-- <v-fab-transition> -->
       <v-btn
         class="orange"
@@ -55,7 +19,11 @@
         <v-icon>edit</v-icon>
         <!-- <v-icon>close</v-icon> -->
       </v-btn>
-    <form></form><!-- </v-fab-transition> -->
+<addnew></addnew>
+<v-text-field label="URL" v-model="url"></v-text-field>
+<v-btn @click="fetchMeta">fetch</v-btn>
+
+    <!-- </v-fab-transition> -->
 
  <v-layout row wrap justify-center> 
       <div v-for="post in posts">
@@ -88,235 +56,6 @@
           </v-btn></a>
         </v-card-actions>
       </v-card>
-     <!--     <v-card class="mx-5 my-3">
-        <v-card-media
-          class="white--text"
-          height="200px"
-          src="/static/img/te.jpg"
-        >
-          <v-container fill-height fluid>
-            <v-layout fill-height>
-              <v-flex xs12 align-end flexbox>
-                <span class="headline">Top 10 Australian beaches</span>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-media>
-        <v-card-title>
-          <div>
-            <span class="grey--text">Number 10</span><br>
-            <span>Whitehaven Beach</span><br>
-            <span>Whitsunday Island, Whitsunday Islands</span>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn flat class="orange--text">Share</v-btn>
-          <v-btn flat class="orange--text">Explore</v-btn>
-        </v-card-actions>
-      </v-card>
-          <v-card class="mx-5 my-3">
-        <v-card-media
-          class="white--text"
-          height="200px"
-          src="/static/img/te.jpg"
-        >
-          <v-container fill-height fluid>
-            <v-layout fill-height>
-              <v-flex xs12 align-end flexbox>
-                <span class="headline">Top 10 Australian beaches</span>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-media>
-        <v-card-title>
-          <div>
-            <span class="grey--text">Number 10</span><br>
-            <span>Whitehaven Beach</span><br>
-            <span>Whitsunday Island, Whitsunday Islands</span>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn flat class="orange--text">Share</v-btn>
-          <v-btn flat class="orange--text">Explore</v-btn>
-        </v-card-actions>
-      </v-card>    <v-card class="mx-5 my-3">
-        <v-card-media
-          class="white--text"
-          height="200px"
-          src="/static/img/te.jpg"
-        >
-          <v-container fill-height fluid>
-            <v-layout fill-height>
-              <v-flex xs12 align-end flexbox>
-                <span class="headline">Top 10 Australian beaches</span>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-media>
-        <v-card-title>
-          <div>
-            <span class="grey--text">Number 10</span><br>
-            <span>Whitehaven Beach</span><br>
-            <span>Whitsunday Island, Whitsunday Islands</span>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn flat class="orange--text">Share</v-btn>
-          <v-btn flat class="orange--text">Explore</v-btn>
-        </v-card-actions>
-      </v-card>    <v-card class="mx-5 my-3">
-        <v-card-media
-          class="white--text"
-          height="200px"
-          src="/static/img/te.jpg"
-        >
-          <v-container fill-height fluid>
-            <v-layout fill-height>
-              <v-flex xs12 align-end flexbox>
-                <span class="headline">Top 10 Australian beaches</span>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-media>
-        <v-card-title>
-          <div>
-            <span class="grey--text">Number 10</span><br>
-            <span>Whitehaven Beach</span><br>
-            <span>Whitsunday Island, Whitsunday Islands</span>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn flat class="orange--text">Share</v-btn>
-          <v-btn flat class="orange--text">Explore</v-btn>
-        </v-card-actions>
-      </v-card>    <v-card class="mx-5 my-3">
-        <v-card-media
-          class="white--text"
-          height="200px"
-          src="/static/img/te.jpg"
-        >
-          <v-container fill-height fluid>
-            <v-layout fill-height>
-              <v-flex xs12 align-end flexbox>
-                <span class="headline">Top 10 Australian beaches</span>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-media>
-        <v-card-title>
-          <div>
-            <span class="grey--text">Number 10</span><br>
-            <span>Whitehaven Beach</span><br>
-            <span>Whitsunday Island, Whitsunday Islands</span>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn flat class="orange--text">Share</v-btn>
-          <v-btn flat class="orange--text">Explore</v-btn>
-        </v-card-actions>
-      </v-card>    <v-card class="mx-5 my-3">
-        <v-card-media
-          class="white--text"
-          height="200px"
-          src="/static/img/te.jpg"
-        >
-          <v-container fill-height fluid>
-            <v-layout fill-height>
-              <v-flex xs12 align-end flexbox>
-                <span class="headline">Top 10 Australian beaches</span>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-media>
-        <v-card-title>
-          <div>
-            <span class="grey--text">Number 10</span><br>
-            <span>Whitehaven Beach</span><br>
-            <span>Whitsunday Island, Whitsunday Islands</span>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn flat class="orange--text">Share</v-btn>
-          <v-btn flat class="orange--text">Explore</v-btn>
-        </v-card-actions>
-      </v-card>    <v-card class="mx-5 my-3">
-        <v-card-media
-          class="white--text"
-          height="200px"
-          src="/static/img/te.jpg"
-        >
-          <v-container fill-height fluid>
-            <v-layout fill-height>
-              <v-flex xs12 align-end flexbox>
-                <span class="headline">Top 10 Australian beaches</span>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-media>
-        <v-card-title>
-          <div>
-            <span class="grey--text">Number 10</span><br>
-            <span>Whitehaven Beach</span><br>
-            <span>Whitsunday Island, Whitsunday Islands</span>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn flat class="orange--text">Share</v-btn>
-          <v-btn flat class="orange--text">Explore</v-btn>
-        </v-card-actions>
-      </v-card>    
-      <v-card class="mx-5 my-3">
-        <v-card-media
-          class="white--text"
-          height="200px"
-          src="/static/img/te.jpg"
-        >
-          <v-container fill-height fluid>
-            <v-layout fill-height>
-              <v-flex xs12 align-end flexbox>
-                <span class="headline">Top 10 Australian beaches</span>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-media>
-        <v-card-title>
-          <div>
-            <span class="grey--text">Number 10</span><br>
-            <span>Whitehaven Beach</span><br>
-            <span>Whitsunday Island, Whitsunday Islands</span>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn flat class="orange--text">Share</v-btn>
-          <v-btn flat class="orange--text">Explore</v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card class="mx-5 my-3">
-        <v-card-media
-          class="white--text"
-          height="200px"
-          src="/static/img/te.jpg"
-        >
-          <v-container fill-height fluid>
-            <v-layout fill-height>
-              <v-flex xs12 align-end flexbox>
-                <span class="headline">Top 10 Australian beaches</span>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-media>
-        <v-card-title>
-          <div>
-            <span class="grey--text">Number 10</span><br>
-            <span>Whitehaven Beach</span><br>
-            <span>Whitsunday Island, Whitsunday Islands</span>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn flat class="orange--text">Share</v-btn>
-          <v-btn flat class="orange--text">Explore</v-btn>
-        </v-card-actions>
-      </v-card> -->
       </div>
   </v-layout>
   </div>
@@ -325,11 +64,13 @@
 import { db } from '../firebase.js'
   import { postsRef } from '../firebase.js'
   import form from './form.vue'
+  import $ from 'jquery'
 export default{
 name:'dashboard',
  data () {
- 	return{        dialog: false
-,
+ 	return{        
+    dialog: false,
+    url:'',
       fab: false,
       hidden: false,
       tabs: 'two',
@@ -340,7 +81,7 @@ name:'dashboard',
  	}
  },
  components:{
-form
+'addnew':form
  },
  firebase:{
       posts:postsRef
@@ -373,10 +114,28 @@ form
   methods:{
     openForm(){
 
-    }
+    },
+    fetchMeta(){
+      var url=this.url;
+      console.log(url);
+let urlEncoded = encodeURIComponent(url);
+const apiKey = '59817d1c07efcb0b00a6ff5a'; // <-- Replace with your app_id from https://www.opengraph.io/
 
-  }
+// The entire request is just a simple get request with optional query parameters
+let requestUrl = "https://opengraph.io/api/1.0/site/" + urlEncoded + '?app_id=' + apiKey;
+
+  
+  $.getJSON(requestUrl, function( json ) {
+  
+    // Throw the object in the console to see what it looks like!
+    console.log('json', json);
+          
+    // Update the HTML elements!
+  });    
 }
+}
+}
+
 </script>
 <style scoped>
 	#example-1 {
