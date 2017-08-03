@@ -82,7 +82,8 @@ name:'dashboard',
       cool: false,
       hidden: false,
       tabs: 'two',
-      modal:true
+      modal:true,
+      posts1:[]
  	}
  },
  computed:{
@@ -111,15 +112,23 @@ name:'dashboard',
     //       default: return {}
     //     }
     //   }
-    // },
+    // },0
  mounted(){
+  var temp;
+  const that=this;
+  console.log(this);
+  console.log(this.$route);
+// if(this.$route.fullPath=='/'){
+//   this.posts1=this.posts
+//   return;
+// }
+//   postsRef.orderByChild("category").equalTo(this.$route.fullPath.split('/')[1])
+//   .on("child_added", (data)=> {
+//    // temp=data.val();
+//    this.posts1.push(data.val());
+// })
+  // console.log(temp);
   // this.activeFab('one');
- 	const post ={
- 		Title:'A new blog post',
- 		Description:'BentoBox, the website builder for restauranteurs, cooks up $4.8M Series A',
- 		Thumb:'/static/img/te.jpg',
- 		Url:'https://vookmark.co'
- 	}
  // postsRef.push(post);
  // this.posts.push(post);
  // this.posts.push(post);

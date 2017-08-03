@@ -40,7 +40,7 @@
 				tagsArray.splice(3);
 
 				this.tags=tagsArray;
-				console.log(this.tags);
+	
 			}
 		}
 	}

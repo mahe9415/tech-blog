@@ -1,11 +1,11 @@
 <template>
-	<div class="col-12 navWrap">
+	<div class="col-12 orange navWrap">
     <!-- <verify v-if="!is_verify"></verify> -->
             <ul class="nav text-center sticky">
-                <router-link tag="li" to="/android" exact active-class="active" class="col-auto col-md-auto nav-item stick">
+                <router-link tag="li" to="/Android" exact active-class="active" class="col-auto col-md-auto nav-item stick">
                 <a class="nav-link" href="#"> Android</a>
                 </router-link>
-                <router-link tag="li" to="/web" active-class="active" class="col-auto col-md-auto nav-item stick">
+                <router-link tag="li" to="/Web" active-class="active" class="col-auto col-md-auto nav-item stick">
                 <a class="nav-link" href="#"> Web</a>
                 </router-link>
                 <router-link tag="li" to="/Backend" active-class="active" class="col-auto col-md-auto nav-item stick">

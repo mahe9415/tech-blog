@@ -14,9 +14,44 @@ export default new Router({
       name: 'Hello',
       component: Hello
     },{
-    	path:'/',
-    	name:'dashboard',
-    	components:{
+      path:'/Web',
+      components:{
+        navbar,
+        posts: dashboard
+      }
+    },{
+      path:'/Android',
+      components:{
+        navbar,
+        posts: dashboard
+      }
+    },{
+      path:'/IOS',
+      components:{
+        navbar,
+        posts: dashboard
+      }
+    },{
+      path:'/Backend',
+      components:{
+        navbar,
+        posts: dashboard
+      }
+    },{
+      path:'/Design',
+      components:{
+        navbar,
+        posts: dashboard
+      }
+    },{
+      path:'/',
+      components:{
+        navbar,
+        posts: dashboard
+      }
+    },{
+      path:'/Other',
+      components:{
         navbar,
         posts: dashboard
       }

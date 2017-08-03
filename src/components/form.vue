@@ -178,7 +178,8 @@ let requestUrl = "https://opengraph.io/api/1.0/site/" + urlEncoded + '?app_id=' 
     'thumbnail':json.hybridGraph.image,
     'siteIcon':json.hybridGraph.favicon,
     url,
-    'tags': this.tags
+    'tags': this.tags,
+    'category':this.category
   }
 
   postsRef.push(post);
