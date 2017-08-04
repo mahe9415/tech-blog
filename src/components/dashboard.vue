@@ -73,6 +73,9 @@ import { db } from '../firebase.js'
   import form from './form.vue'
   import $ from 'jquery'
   import tagsElement from './tags.vue'
+  import { mapState } from 'vuex'
+  import {store} from '../store.js'
+
 export default{
 name:'dashboard',
  data () {
@@ -83,24 +86,25 @@ name:'dashboard',
       hidden: false,
       tabs: 'two',
       modal:true,
-      posts1:[]
+      // posts1:[]
  	}
  },
  computed:{
-  format_tags:(tags)=>{
+  format_tags(tags){
     console.log(tags);
     let tagsArray = tags.split('');
     // console.log(tagsArray)
-
     return tagsArray;
-  }
+  }, posts () {
+      return store.state.posts
+    }
  },
  components:{
 'addnew':form,
   tagsElement
  },
  firebase:{
-      posts:postsRef
+      Lposts:postsRef
     },
     //   computed:{
     //   activeFab () {
@@ -114,10 +118,11 @@ name:'dashboard',
     //   }
     // },0
  mounted(){
+  console.log(this.posts)
   var temp;
   const that=this;
-  console.log(this);
-  console.log(this.$route);
+  // console.log(this);
+  // console.log(this.$route);
 // if(this.$route.fullPath=='/'){
 //   this.posts1=this.posts
 //   return;

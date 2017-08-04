@@ -5,6 +5,15 @@ import App from './App'
 import router from './router'
 import VueFire from 'vuefire'
 import Vuetify from 'vuetify'
+ import {store} from './store.js'
+
+  router.beforeEach((to, from, next) => {
+  	console.log(to)
+  store.commit('fetchPosts',to.name);
+  next();
+		})
+
+
 
 Vue.use(VueFire)
 
