@@ -5,12 +5,22 @@
                 <router-link tag="li" to="/Android" exact active-class="active" class="col-auto col-md-auto nav-item stick">
                 <a class="nav-link" href="#"> Android</a>
                 </router-link>
+                   <router-link tag="li" to="/IOS" active-class="active" class="col-auto col-md-auto nav-item stick">
+                <a class="nav-link" href="#">iOS</a>
+                </router-link>
                 <router-link tag="li" to="/Web" active-class="active" class="col-auto col-md-auto nav-item stick">
                 <a class="nav-link" href="#"> Web</a>
                 </router-link>
                 <router-link tag="li" to="/Backend" active-class="active" class="col-auto col-md-auto nav-item stick">
                 <a class="nav-link" href="#">Backend</a>
                 </router-link>
+                   <router-link tag="li" to="/Design" active-class="active" class="col-auto col-md-auto nav-item stick">
+                <a class="nav-link" href="#">Design</a>
+                </router-link>
+                   <router-link tag="li" to="/Other" active-class="active" class="col-auto col-md-auto nav-item stick">
+                <a class="nav-link" href="#">Other</a>
+                </router-link>
+
     </ul>
         </div>
 </template>
@@ -33,7 +43,7 @@ li{
 margin: auto 20px;
 }
 .active{
-    color:#FF9800;
+    color:#fff;
 }
 a{
     color:inherit;

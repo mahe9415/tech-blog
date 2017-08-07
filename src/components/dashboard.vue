@@ -1,29 +1,4 @@
 <template>
-
- <!-- <div class="text-xs-center">
-    <v-btn outline large fab class="indigo--text">
-      <v-icon>edit</v-icon>
-    </v-btn>
-  </div> -->
-  <!-- <v-fab-transition> -->
-     <!--  <v-btn
-        class="orange"
-        key="edit"
-        dark
-        cool
-        fixed
-        bottom
-        right
-        v-model="cool" v-if="modal" @click="openForm"
-      >
-        <v-icon>edit</v-icon>
-      </v-btn> -->
-
-<!-- <v-text-field label="URL" v-model="url"></v-text-field> -->
-<!-- <v-btn @click="fetchMeta">fetch</v-btn> -->
-
-    <!-- </v-fab-transition> -->
-
  <v-layout row wrap justify-center> 
       <div v-for="post in posts">
       <v-card flat class="mx-5 my-3">
@@ -44,18 +19,20 @@
         <v-card-title>
           <div class="description">
           {{post.description}}
-            <!-- <span class="grey--text">Number 10</span><br> -->
-            <!-- <span>Whitehaven Beach</span><br> -->
-            <!-- <span>Whitsunday Island, Whitsunday Islands</span> -->
           </div>
         </v-card-title>
       </a>
       <v-layout flex column>
-          <!-- <v-btn flat class="orange--text">Share</v-btn> -->
   <tagsElement :tagString="post.tags"></tagsElement>
     <!-- <v-chip label class="pink white--text">
       <v-icon left >#{{post.tags.split(' ').join('#') }}</v-icon>
     </v-chip> -->
+     <template>
+  <!--    <template v-for="(tag,index) in post.tags">
+    <v-chip small label class="orange text-xs-center"> <v-icon left>label</v-icon>{{tag}}
+    </v-chip>
+  </template> -->
+  </template>
         </v-layout>
       </v-card>
      </div>
@@ -64,7 +41,6 @@
                 <div class="empty" key=5ewde></div>
                 <div class="empty" key=5esdsdwe></div>
   </v-layout>
-  <!-- <addnew></addnew> -->
 
 </template>
 <script>
@@ -91,12 +67,15 @@ name:'dashboard',
  },
  computed:{
   format_tags(tags){
-    console.log(tags);
+    // console.log(tags);
     let tagsArray = tags.split('');
     // console.log(tagsArray)
     return tagsArray;
   }, posts () {
       return store.state.posts
+    },
+    limitTags(arr){
+      return arr.splice(3);
     }
  },
  components:{
@@ -118,7 +97,7 @@ name:'dashboard',
     //   }
     // },0
  mounted(){
-  console.log(this.posts)
+  // console.log(this.posts)
   var temp;
   const that=this;
   // console.log(this);
@@ -144,24 +123,24 @@ name:'dashboard',
     openForm(){
 
     },
-    fetchMeta(){
-      var url=this.url;
-      console.log(url);
-let urlEncoded = encodeURIComponent(url);
-const apiKey = '59817d1c07efcb0b00a6ff5a'; // <-- Replace with your app_id from https://www.opengraph.io/
+//     fetchMeta(){
+//       var url=this.url;
+//       console.log(url);
+// let urlEncoded = encodeURIComponent(url);
+// const apiKey = '59817d1c07efcb0b00a6ff5a'; // <-- Replace with your app_id from https://www.opengraph.io/
 
-// The entire request is just a simple get request with optional query parameters
-let requestUrl = "https://opengraph.io/api/1.0/site/" + urlEncoded + '?app_id=' + apiKey;
+// // The entire request is just a simple get request with optional query parameters
+// let requestUrl = "https://opengraph.io/api/1.0/site/" + urlEncoded + '?app_id=' + apiKey;
 
   
-  $.getJSON(requestUrl, function( json ) {
+//   $.getJSON(requestUrl, function( json ) {
   
-    // Throw the object in the console to see what it looks like!
-    console.log('json', json);
+//     // Throw the object in the console to see what it looks like!
+//     console.log('json', json);
           
-    // Update the HTML elements!
-  });    
-}
+//     // Update the HTML elements!
+//   });    
+// }
 }
 }
 
