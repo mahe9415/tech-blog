@@ -1,12 +1,12 @@
 <template>
  <v-layout row wrap justify-center> 
-      <div v-for="post in posts">
+      <div v-for="post in posts[0]">
       <v-card flat class="mx-5 my-3">
       <a :href="post.url" target="_blank">
         <v-card-media
           class="white--text"
           height="200px"
-          :src="post.thumbnail"
+          :src="post.thumbnail || '/static/img/te.jpg'"
         >
           <v-container fill-height fluid>
             <v-layout fill-height>
@@ -100,6 +100,7 @@ name:'dashboard',
   // console.log(this.posts)
   var temp;
   const that=this;
+
   // console.log(this);
   // console.log(this.$route);
 // if(this.$route.fullPath=='/'){

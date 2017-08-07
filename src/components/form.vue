@@ -60,6 +60,7 @@
   import { db } from '../firebase.js'
   import { postsRef } from '../firebase.js'
   import $ from 'jquery'
+  import {store} from '../store.js'
   export default {
     data () {
       return {
@@ -201,9 +202,9 @@ let post={};
     return;
     }
     post={
-    'title': json.hybridGraph.title,
-    'description': json.hybridGraph.description,
-    'thumbnail':json.hybridGraph.image,
+    'title': json.hybridGraph.title || null,
+    'description': json.hybridGraph.description || null,
+    'thumbnail':json.hybridGraph.image || null,
     'siteIcon':json.hybridGraph.favicon || null,
     'url':this.url.trim(),
     'tags': this.construct_tags(this.tags),
@@ -215,7 +216,7 @@ let post={};
   this.dialog=false;
   }).then((doc)=>{
      postsRef.push(post);
-console.log("post  "+JSON.stringify(post))
+     store.commit('fetchPosts',this.$route.name);
   })
  
 }

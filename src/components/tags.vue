@@ -12,36 +12,33 @@
 		props:['tagString'],
 		methods:{
 			tags:(tagString)=>{
-				console.log("tasg "+tagString)
+
 				if(tagString==undefined){
 					return []
 				}
+				tagString=Array.from(tagString);
+				if(tagString.length>2){
+					tagString.splice(3);
+					return tagString
+				}
+				return tagString;
 				// tagString.splice(3);
 				// console.log(typeof(tagString));
-				let tags=[];
-
-				if(tagString[0] != ''){
-				tags.push(tagString[0]);
-				}
-
-				if(tagString[1] != ''){
-				tags.push(tagString[1]);
-				}
-
-				if(tagString[2] != ''){
-				tags.push(tagString[2]);
-				}
-					tags.forEach((tag,index)=>{
-					if(tag == undefined){
-						tags.splice(index,1);
-					}
-				})
-					console.log(tags)
-	// 			tags
-				// tags.push(tagString[1]);
-				// tags.push(tagString[2]);
-				
-				return tags;
+				// let tags=[];
+	// 			tags.push(tagString[0]);
+	// 			tags.push(tagString[1]);
+	// 			tags.push(tagString[2]);
+	// 				tags.forEach((tag,index)=>{
+	// 				console.log(tag);
+	// 				if(tag == undefined){
+	// 					tags.splice(index,1);
+	// 				}
+	// 			})
+	// // 			tags
+	// 			// tags.push(tagString[1]);
+	// 			// tags.push(tagString[2]);
+				// console.log(tags)
+				// return tags;
 			}
 		}
 		// data(){

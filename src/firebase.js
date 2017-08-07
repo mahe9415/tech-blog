@@ -1,5 +1,5 @@
 import Firebase from 'firebase'
-
+import {store} from './store.js'
   // Initialize Firebase
    const config = {
     apiKey: "AIzaSyCu2o1CHFHtDCk8XD2FnSQIGUByXN7r1j0",
@@ -13,8 +13,6 @@ import Firebase from 'firebase'
   const app = Firebase.initializeApp(config)
   const db = app.database()
   const postsRef = db.ref('Posts')
-
-
 export {
   app,
   db,
