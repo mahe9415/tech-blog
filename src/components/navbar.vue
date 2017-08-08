@@ -2,6 +2,9 @@
 	<div class="col-12 orange navWrap">
     <!-- <verify v-if="!is_verify"></verify> -->
             <ul class="nav text-center sticky">
+             <router-link tag="li" to="/" exact active-class="active" class="col-auto col-md-auto nav-item stick">
+                <a class="nav-link" href="#">Home</a>
+                </router-link>
                 <router-link tag="li" to="/Android" exact active-class="active" class="col-auto col-md-auto nav-item stick">
                 <a class="nav-link" href="#"> Android</a>
                 </router-link>
