@@ -46,7 +46,7 @@
 <script>
 import { db } from '../firebase.js'
   import { postsRef } from '../firebase.js'
-  import form from './form.vue'
+  // import form from './form.vue'
   import $ from 'jquery'
   import tagsElement from './tags.vue'
   import { mapState } from 'vuex'
@@ -79,7 +79,7 @@ name:'dashboard',
     }
  },
  components:{
-'addnew':form,
+// 'addnew':form,
   tagsElement
  },
  firebase:{

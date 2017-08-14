@@ -1,5 +1,6 @@
 <template>
     <v-layout row justify-center>
+    <!-- <v-btn @click="create">add user to db</v-btn> -->
 
     <v-dialog v-model="dialog" width="300px;">
       <!-- <v-btn primary dark slot="activator">Open Dialog</v-btn> -->

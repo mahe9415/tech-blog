@@ -4,12 +4,19 @@ import Hello from '@/components/Hello'
 import dashboard from '@/components/dashboard'
 import navbar from '@/components/navbar'
 import form from '@/components/form'
+import login from '@/components/login'
 // import {store} from '../store.js'
 Vue.use(Router)
 
 export default new Router({
 
-  routes: [
+  routes: [ {
+      path: '/login',
+      name: 'login',
+      components:{
+         posts: login
+       } 
+    },,
     {
       path: '/welcome',
       name: 'Hello',
