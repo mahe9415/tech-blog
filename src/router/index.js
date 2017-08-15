@@ -5,11 +5,12 @@ import dashboard from '@/components/dashboard'
 import navbar from '@/components/navbar'
 import form from '@/components/form'
 import login from '@/components/login'
+import toolbar from '@/components/toolbar'
 // import {store} from '../store.js'
 Vue.use(Router)
 
 export default new Router({
-
+mode:'history',
   routes: [ {
       path: '/login',
       name: 'login',
@@ -25,49 +26,49 @@ export default new Router({
       path:'/Web',
       name:'Web',
       components:{
-        navbar,
+        navbar:toolbar,
         posts: dashboard
       }
     },{
       path:'/Android',
       name:'Android',
       components:{
-        navbar,
+        navbar:toolbar,
         posts: dashboard
       }
     },{
       path:'/IOS',
       name:'IOS',
       components:{
-        navbar,
+        navbar:toolbar,
         posts: dashboard
       }
     },{
       path:'/Backend',
       name:'Backend',
       components:{
-        navbar,
+        navbar:toolbar,
         posts: dashboard
       }
     },{
       path:'/Design',
       name:'Design',
       components:{
-        navbar,
+        navbar:toolbar,
         posts: dashboard
       }
     },{
       path:'/',
       name:'Home',
       components:{
-        navbar,
+        navbar:toolbar,
         posts: dashboard
       }
     },{
       path:'/Other',
       name:'Other',
       components:{
-        navbar,
+        navbar:toolbar,
         posts: dashboard
       }
     },{

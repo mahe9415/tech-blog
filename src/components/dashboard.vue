@@ -1,5 +1,6 @@
 <template>
- <v-layout row wrap justify-center> 
+ <v-layout row wrap justify-center>
+ 
       <div v-for="post in posts[0]">
       <v-card flat class="mx-5 my-3">
       <a :href="post.url" target="_blank">

@@ -23,8 +23,15 @@
                    <router-link tag="li" to="/Other" active-class="active" class="col-auto col-md-auto nav-item stick">
                 <a class="nav-link" href="#">Other</a>
                 </router-link>
+                    <v-chip class="indigo white--text">
+      <v-avatar>
+        <v-icon>account_circle</v-icon>
+      </v-avatar>
+      Ranee
+    </v-chip>
 
     </ul>
+
         </div>
 </template>
 <script>
