@@ -20,7 +20,7 @@ import {app} from '../firebase.js'
 			}
 		},
 		methods:{
-			createUser(){
+	createUser(){
 	app.auth().createUserWithEmailAndPassword(this.username, this.password)
     .catch(function(error) {
   // Handle Errors here.
@@ -33,8 +33,7 @@ import {app} from '../firebase.js'
   }
   console.log(error);
 });
-
-			},
+},
 			signin(){
 				app.auth().signInWithEmailAndPassword(this.username, this.password)
     .catch(function(error) {

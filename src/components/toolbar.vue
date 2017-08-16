@@ -9,7 +9,7 @@
       <v-btn flat exact to="/Backend">Backend</v-btn>
       <v-btn flat exact to="/Design">Design</v-btn>
       <v-btn flat exact to="/Other">Other</v-btn>
-    <v-chip class="indigo white--text">
+      <v-chip class="indigo white--text">
       <v-avatar>
         <v-icon>account_circle</v-icon>
       </v-avatar>
@@ -22,8 +22,22 @@
 export default {
 	data(){
         return{
-            drawer:true
+          is_in:false
 }
+        },
+        mounted(){
+            app.auth().onAuthStateChanged((user)=> {
+  if (user) {
+    this.is_in=true
+    console.log(user)
+    // User is signed in.
+  } else {
+    // boolean =false
+    console.log("NOT IN")
+    // No user is signed in.
+  }
+  return
+});
         }
     }
 </script>
