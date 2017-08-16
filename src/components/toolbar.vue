@@ -1,5 +1,5 @@
 <template>
-
+<v-container fluid pa-0>
  <v-layout row wrap justify-end pr-2 orange>
  <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
       <v-btn flat exact to="/">Home</v-btn>
@@ -9,35 +9,51 @@
       <v-btn flat exact to="/Backend">Backend</v-btn>
       <v-btn flat exact to="/Design">Design</v-btn>
       <v-btn flat exact to="/Other">Other</v-btn>
-      <v-chip class="indigo white--text">
+      <v-menu offset-y>
+    <!--   <v-chip class="orange white--text" slot="activator">
       <v-avatar>
-        <v-icon>account_circle</v-icon>
+        <v-icon >account_circle</v-icon>
       </v-avatar>
-      Ranee
-    </v-chip>
+      {{email1}}
+    </v-chip> -->
+       <v-btn  class="red white--text" slot="activator">{{email1}}
+      <v-icon dark right>account_circle</v-icon>
+    </v-btn>
+     <v-list>
+        <v-list-tile>
+                  <v-list-tile-title  @click="out">logout</v-list-tile-title>
+</v-list-tile>
+        </v-list>
+    </v-menu>
 </v-layout>
-
+</v-container>
 </template>
 <script>
+  import {store} from '../store.js'
+
 export default {
 	data(){
         return{
-          is_in:false
-}
+            email:store.state.email
+            }
+        },
+        computed:{
+           is_in1(){
+            console.log(store.state.is_in)
+         return store.state.is_in;
+           },
+           email1(){
+
+         return store.state.email || 'Login'
+     }
         },
         mounted(){
-            app.auth().onAuthStateChanged((user)=> {
-  if (user) {
-    this.is_in=true
-    console.log(user)
-    // User is signed in.
-  } else {
-    // boolean =false
-    console.log("NOT IN")
-    // No user is signed in.
-  }
-  return
-});
+            // console.log(this.is_in)
+        },
+        methods:{
+            out(){
+                store.commit('out')
+            }
         }
     }
 </script>

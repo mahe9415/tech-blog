@@ -7,19 +7,19 @@ import VueFire from 'vuefire'
 import Vuetify from 'vuetify'
  import {store} from './store.js'
 
-  router.beforeEach((to, from, next) => {
-  	console.log(to)
-  store.commit('fetchPosts',to.name);
-  next();
-		})
-
-
-
 Vue.use(VueFire)
 
 Vue.use(Vuetify)
 
 Vue.config.productionTip = false
+
+  router.beforeEach((to, from, next) => {
+  store.commit('is_loggedin');
+  store.commit('fetchPosts',to.name);
+  next();
+		})
+
+
 
 /* eslint-disable no-new */
 new Vue({
