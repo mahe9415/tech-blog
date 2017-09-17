@@ -9,32 +9,37 @@
       <v-btn flat exact to="/Backend">Backend</v-btn>
       <v-btn flat exact to="/Design">Design</v-btn>
       <v-btn flat exact to="/Other">Other</v-btn>
-      <v-menu offset-y>
+      <!-- <v-menu offset-y> -->
     <!--   <v-chip class="orange white--text" slot="activator">
       <v-avatar>
         <v-icon >account_circle</v-icon>
       </v-avatar>
       {{email1}}
     </v-chip> -->
-       <v-btn  class="red white--text" slot="activator">{{email1}}
+      <login :email1="email1"> </login>
+     <!--   <v-btn  class="red white--text" slot="activator">{{email1}}
       <v-icon dark right>account_circle</v-icon>
-    </v-btn>
-     <v-list>
+    </v-btn> -->
+  <!--    <v-list>
         <v-list-tile>
                   <v-list-tile-title  @click="out">logout</v-list-tile-title>
 </v-list-tile>
-        </v-list>
-    </v-menu>
+        </v-list> -->
+    <!-- </v-menu> -->
 </v-layout>
 </v-container>
 </template>
 <script>
   import {store} from '../store.js'
-
+  import login from '../components/login.vue'
 export default {
+  components:{
+login
+  },
 	data(){
         return{
-            email:store.state.email
+            email:store.state.email,
+            // dialog:false  
             }
         },
         computed:{

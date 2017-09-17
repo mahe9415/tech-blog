@@ -62,4 +62,7 @@ app.auth().signOut().then(()=> {
 <style>
 #app {
 }
+html{
+  overflow-y:scroll!important;
+}
 </style>

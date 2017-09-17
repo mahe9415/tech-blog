@@ -1,25 +1,49 @@
 <template>
-	<div class="landing">
-	<h2>SignUp</h2>
- <v-text-field v-model="username" label="User" required></v-text-field>
-          <v-text-field v-model="password" label="Password" type="password" required></v-text-field>
-		<v-btn @click.native="signin">
-			signup
-		</v-btn>
+<v-dialog v-model="dialog" lazy persistent>
+      <!-- <v-btn primary dark slot="activator"    -->
+      <v-btn
+        flat
+        slot="activator"
+      >{{email1}}</v-btn>
+	<div class="landing pa-4" v-if="!is_in">
+	<h2>Sign In</h2>
+ <v-text-field v-model="username" label="User" required> </v-text-field>
+ <v-text-field v-model="password" label="Password" type="password" required></v-text-field>
+<v-btn @click.native="signin">	Sign In	</v-btn>
+    <v-btn class="blue--text darken-1" flat @click.native="dialog = false">Close</v-btn>
 	</div>
+	<div v-else class="landing pa-4">
+		Are you sure want to Signout ? 
+		<v-btn @click.native="out">	Yes	</v-btn>
+    <v-btn class="blue--text darken-1" flat @click.native="dialog = false">Close</v-btn>
+
+	</div>
+</v-dialog>
 </template>
 
 <script>
 import {app} from '../firebase.js'
+import {store} from '../store.js'
 	export default{
 		name:'login',
+		props:['email1'],
 		data(){
 			return{
 				username:'',
-				password:''
+				password:'',
+				dialog:false 
 			}
 		},
-		methods:{
+		computed:{
+			is_in(){
+				return store.state.is_in;
+			}
+		},
+		methods:{ out(){
+                this.dialog=false; 
+                 store.commit('out');
+            }
+,
 	createUser(){
 	app.auth().createUserWithEmailAndPassword(this.username, this.password)
     .catch(function(error) {
@@ -35,7 +59,9 @@ import {app} from '../firebase.js'
 });
 },
 			signin(){
-				app.auth().signInWithEmailAndPassword(this.username, this.password)
+				app.auth().signInWithEmailAndPassword(this.username, this.password).then(()=>{
+					this.dialog=false;
+				})
     .catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
@@ -59,7 +85,9 @@ import {app} from '../firebase.js'
 	flex-direction:column;
 	align-items: center;
 	margin: auto;
-	max-width: 500px;
+	max-width: 320px;
+	background: #fff;
+
 }
 	
 </style>

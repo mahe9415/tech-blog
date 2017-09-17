@@ -29,7 +29,7 @@
              v-bind:items="items"
           ></v-select>
           <v-text-field v-model="url" label="URL" required></v-text-field>
-          <v-text-field v-model="password" label="Password" type="password" required></v-text-field>
+          <!-- <v-text-field v-model="password" label="Password" type="password" required></v-text-field> -->
 
       
           <v-text-field label="Tags" v-model="tags"  hint="Separate tags by space"
@@ -71,7 +71,7 @@
         tags:null,
         text:null,
         snackbar:false,
-        password:null,
+        // password:null,
  items: [
            'Android' ,
            'Web' ,
@@ -174,12 +174,13 @@ if(re_weburl.test(value)){
             this.snackbar=true;
             return 
           }
-          if(this.password != 'true'){
-            // console.log(this.password)
-            this.text="Wrong Password !"
-            this.snackbar=true;
-            return
-          }
+          // if(this.password != 'true'){
+                                                  
+          //   // console.log(this.password)
+          //   this.text="Wrong Password !"
+          //   this.snackbar=true;
+          //   return
+          // }
       const dup=this.posts.some((post)=> post.url == this.url.trim());
       console.log(dup)
 if(dup){

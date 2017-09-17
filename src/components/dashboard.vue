@@ -1,6 +1,5 @@
 <template>
  <v-layout row wrap justify-center>
- 
       <div v-for="post in posts[0]">
       <v-card flat class="mx-5 my-3">
       <a :href="post.url" target="_blank">
@@ -160,7 +159,7 @@ name:'dashboard',
   }
   .card{
     width:370px;
-    height:338px!important;
+    min-height:338px!important;
     /*margin:25px 30px;*/
   }
     .empty:empty {  
