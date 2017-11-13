@@ -13,10 +13,11 @@
     <v-btn class="blue--text darken-1" flat @click.native="dialog = false">Close</v-btn>
 	</div>
 	<div v-else class="landing pa-4">
-		Are you sure want to Signout ? 
-		<v-btn @click.native="out">	Yes	</v-btn>
+		Are you sure want to Signout ?
+		<div class="mt-2"> 
+	<v-btn @click.native="out">	Yes	</v-btn>
     <v-btn class="blue--text darken-1" flat @click.native="dialog = false">Close</v-btn>
-
+</div>
 	</div>
 </v-dialog>
 </template>

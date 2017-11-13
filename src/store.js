@@ -9,7 +9,8 @@ export const store = new Vuex.Store({
   state: {
     posts: new Set(),
     is_in:false,
-    email:null
+    email:null,
+    loader:true
     // tab:'/',
   },
   // getters:{
@@ -19,26 +20,21 @@ export const store = new Vuex.Store({
   // },
   mutations: {
     fetchPosts: (state, tab) => {
-      // console.log("fetched");
+      state.loader=true;
       state.posts = [];
-      // console.log(tab)
       if (tab == 'Home') {
-        // console.log(msg)
         postsRef.orderByChild('category')
           .on("value", (data) => {
           	state.posts=[];
-            // temp=data.val();
-            // console.log(JSON.stringify(data.val()))
             state.posts.push(data.val());
+            state.loader=false;
           })
-        // console.log(state.posts)
         return
       }
       postsRef.orderByChild("category").equalTo(tab)
         .on("value", (data) => {
-          // temp=data.val();
-          // console.log(data.val())
           state.posts.push(data.val());
+          state.loader=false;
         })
     }
   ,
@@ -48,26 +44,18 @@ export const store = new Vuex.Store({
     state.is_in=true
     state.email=user.email
     console.log(state)
-    // User is signed in.
   } else {
     state.is_in=false;
     state.email=null
-    // boolean =false
-    console.log("NOT IN")
-    // No user is signed in.
   }
   return
 });
 
   },
     out(state){
-// app.delete()
-app.auth().signOut().then(()=> {
+  app.auth().signOut().then(()=> {
   state.is_in=false;
-  // Sign-out successful.
-  console.log("outtttttttttttt")
 }).catch(function(error) {
-  // An error happened.
   console.log(error)
 });
   }

@@ -2,7 +2,7 @@
     <v-layout row justify-center>
     <!-- <v-btn @click="create">add user to db</v-btn> -->
 
-    <v-dialog v-model="dialog" width="300px;">
+    <v-dialog v-model="dialog" persistent max-width="500px">
       <!-- <v-btn primary dark slot="activator">Open Dialog</v-btn> -->
          <v-btn
         class="orange"

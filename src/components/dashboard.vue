@@ -1,6 +1,9 @@
 <template>
  <v-layout row wrap justify-center>
-      <div v-for="post in posts[0]">
+ <div class="loader" v-if="loader">
+  <v-progress-circular indeterminate v-bind:size="70" v-bind:width="7" color="orange"></v-progress-circular>
+  </div>
+      <div v-for="post in posts[0]" v-if="!loader">
       <v-card flat class="mx-5 my-3">
       <a :href="post.url" target="_blank">
         <v-card-media
@@ -35,11 +38,11 @@
   </template>
         </v-layout>
       </v-card>
-     </div>
-        <div class="empty" key=5qw></div>
-                <div class="empty" key=5qwee></div>
-                <div class="empty" key=5ewde></div>
-                <div class="empty" key=5esdsdwe></div>
+                </div>
+                <div class="empty" v-if="!loader" key=5qw></div>
+                <div class="empty" v-if="!loader" key=5qwee></div>
+                <div class="empty" v-if="!loader" key=5ewde></div>
+                <div class="empty" v-if="!loader" key=5esdsdwe></div>
   </v-layout>
 
 </template>
@@ -66,13 +69,16 @@ name:'dashboard',
  	}
  },
  computed:{
+  loader(){
+    return store.state.loader;
+  },
   format_tags(tags){
     // console.log(tags);
     let tagsArray = tags.split('');
     // console.log(tagsArray)
     return tagsArray;
   }, posts () {
-      return store.state.posts
+      return store.state.posts;
     },
     limitTags(arr){
       return arr.splice(3);
