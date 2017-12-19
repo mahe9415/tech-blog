@@ -1,5 +1,5 @@
 <template>
-<v-container fluid pa-0>
+<v-container fluid pa-0 style="max-height:50px;">
  <v-layout row wrap justify-end pr-2 orange>
  <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
       <v-btn flat exact to="/">Home</v-btn>
